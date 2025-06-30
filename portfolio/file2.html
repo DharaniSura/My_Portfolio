@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sura Dharani - Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #000000; 
+            font-family: 'Georgia', serif;
+            color:#dcbe45;
+            margin: 0;
+            padding: 0;
+        }
+        /* ===== Navigation Bar ===== */
+    .nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: rgb(16, 16, 16);
+        display: flex;
+        justify-content: center;
+        padding-bottom: 20px 0;
+        box-shadow: 0 2px 5px rgb(150, 145, 145);
+        z-index: 999;
+    }
+    .nav a {
+        color: #ffff;
+        padding: 12px 20px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+        transition: all 0.3s ease;
+        border-bottom: 2px solid transparent;
+    }
+    .nav a:hover,
+    .nav a.active {
+        border-bottom: 2px solid #eaedcc;
+        color: #e3d188;
+    }
+         /* Hero Section */
+        .profile-section-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 10%;
+            background-color: #222222;
+            flex-wrap: wrap; 
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);  
+            border-radius: 2%; 
+        }
+        .intro-content {
+            flex: 1;
+            min-width: 280px;
+            padding-right: 40px;
+        }
+        .intro-content h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .intro-content h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            color: 	#ffff;
+        }
+        .intro-content p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #ffff;
+        }
+        .profile-image-container {
+            flex: 1;
+            min-width: 280px;
+            display: flex;
+            justify-content: center;
+        }
+        .profile-image-container img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            background-color: #724f3e; 
+            padding: 10px;
+        }
+        .academic-excellence {
+            padding: 60px 10%;
+        }
+        .academic-excellence h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #ffff;
+        }
+        .academic-excellence h4, p{
+            color: #ffff;
+        }
+        .education-columns {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .education-block {
+            flex: 1;
+            min-width: 260px;
+            margin-bottom: 20px;
+        }
+        .education-block h4 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color:#e3d188;
+            
+        }
+        
+        .education-block p {
+            margin: 4px 0;
+            font-size: 16px;
+        }
+        .highlight {
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            .profile-section-container {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .intro-content {
+                padding-right: 0;
+            }
+
+            .profile-image-container img {
+                width: 80%;
+            }
+            .education-columns {
+                flex-direction: column;
+            }
+        }
+        /* Content Sections */
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            margin: 80px 0;
+            padding: 80px 60px;
+            border-radius: 30px;
+            box-shadow: var(--shadow-heavy);
+            border: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: var(--primary-gradient);
+            border-radius: 32px;
+            z-index: -1;
+        }
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 60px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+        }
+        /* About Section */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 60px 20px;
+        }
+        h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            font-weight: bold;
+            margin-bottom: 40px;
+            color: #ffff;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .box {
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 20px;
+            padding: 20px 25px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(8px);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        }
+        .icon {
+            font-size: 1.8rem;
+        }
+        .title {
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #1f1f1f;
+            text-decoration: none;
+        }
+        .title:hover {
+            color: #4b52e1;
+            text-decoration: underline;
+        }
+        .desc {
+            font-size: 0.95rem;
+            color: #0a192f;
+            margin-top: 8px;
+        }
+        /* projects Section */
+        .ai-projects-section {
+            background-color: #222222;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .ai-projects-section h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #ffff;
+        }
+        .ai-projects-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .ai-project-box {
+            background-color: rgba(255, 255, 255, 0.6);
+            border: 2px solid #d2c7bd;
+            border-radius: 8px;
+            padding: 25px;
+            width: 420px;
+            text-align: left;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .ai-project-box img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        .ai-project-box h3 {
+            font-size: 22px;
+            color: #2a2a2a;
+            margin-bottom: 12px;
+        }
+        .ai-project-box p {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .ai-project-box ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            color: #1a1a1a;
+        }
+        .ai-project-box ul li {
+            margin-bottom: 5px;
+        }
+        @media (max-width: 768px) {
+            .ai-project-box {
+            width: 100%;
+            }
+        }
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        .stat-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 20px; 
+            padding: 20px;
+        }
+        .stat-card {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-light);
+        }
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-top: 10px;
+            
+        }
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px; 
+        }
+        .timeline-card {
+            max-width: 1000px;
+            background: #222222;
+            margin: 50px auto;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 4px 4px 0px #000000;
+            border: 2px solid #e5ded4;
+        }
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .timeline {
+            position: relative;
+            margin-left: 40px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #fffbfb;
+        }
+        .content-section{
+            background-color: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .content-section h2{
+            color: #222222;
+        }
+        .event {
+            position: relative;
+            margin-bottom: 40px;
+            padding-left: 60px;
+        }
+        .event-icon {
+            position: absolute;
+            left: -1px;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background: #f3f2ed;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ccc;
+            box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+        .event-icon img {
+            width: 20px;
+            height: 20px;
+        }
+        .event h3 {
+            margin: 0 0 5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        .event p {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .event-title-right {
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .Internships h3,p{
+            color: #ffff;
+        }
+        .contact-section {
+        padding: 60px 40px;
+        text-align: center;
+        }
+        .contact-section h2 {
+        font-size: 2.5rem;
+        color: #ffffff;
+        margin-bottom: 40px;
+        }
+        .contact-row {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        gap: 40px;
+        flex-wrap: nowrap; 
+        }
+        .contact-column {
+        flex: 1; 
+        max-width: 300px;
+        text-align: left;
+        }
+        .contact-column h4 {
+        color: #e7d073; 
+        margin-bottom: 10px;
+        font-size: 18px;
+        }
+        .contact-column p {
+        color: #d1d5db;
+        font-size: 14px;
+        margin: 5px 0;
+        }
+        .contact-column a {
+        color: #3b82f6;
+        text-decoration: none;
+        font-weight: 500;
+        }
+        .contact-block p {
+            margin: 4px 0;
+            font-size: 16px;
+        }
+        .content {
+            margin-left: 26px;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+        .footer {
+            display: flex;
+            justify-content: center;
+            font-size: 19px;
+            color: #000000;
+        }
+
+    </style>
+</head>
+<>
+    <div class="progress-bar" id="progressBar"></div>
+    <nav class="nav">
+        
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#academic" class="nav-link">Academic Excellence</a>
+        <a href="#certificates" class="nav-link">Certifications</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#workshops" class="nav-link">Workshops</a>
+        <a href="#interns" class="nav-link">Internships</a>
+        <a href="#contacts" class="nav-link">Contact</a>
+    </nav>
+    <div class="container">
+        <!-- Hero Section -->
+        <section id="home" class="profile-section-container">
+            <div class="intro-content">
+                <h1>Dharani Sura</h1>
+                <h3>Tech Enthusiast ready to innovate and elevate.</h3>
+                <p>A dedicated Engineering Student leveraging data to support business decisions and drive growth, aiming to contribute meaningfully with innovative solutions.</p>
+            </div>
+            <div class="profile-image-container">
+                <img src="WhatsApp Image 2025-05-24 at 20.33.47_e8eacc6b.jpg" alt="Dharani Sura">
+            </div>
+        </section>    
+        <!-- Stats Section -->
+        <section id="academic" class="academic-excellence">
+            <h2>Academic Excellence</h2>
+            <div class="education-columns">
+                <div class="education-block">
+                    <h4>CMR Engineering College, Hyderabad</h4>
+                    <p>B.Tech. - Computer Science and Machine Learning</p>
+                    <p>CGPA: <span class="highlight">8.98 / 10</span></p>
+                </div>
+                <div class="education-block">
+                    <h4>S.K.M Junior College, Gadwal, Telangana.</h4>
+                    <p>Telangana State Board of Intermediate Education.</p>
+                    <p>GPA: <span class="highlight">97.2 / 10</span></p>
+                </div>
+                <div class="education-block">
+                    <h4>Viswa Bharathi High School, Gadwal, Telangana</h4>
+                    <p>Telangana State Board of Secondary Education.</p>
+                    <p>GPA: <span class="highlight">100 / 100</span></p>
+                </div>
+            </div>
+        </section>
+        <!-- About Section -->
+        <section id="certificates" class="certifications">
+        <div class="container">
+            <h2>Certifications & Skills</h2>
+            <div class="grid">
+        
+                <div class="box">
+                    <div class="icon">⚙️</div>
+                    <a class="title" href="certificates/nptel.png" target="_blank">Machine Learning</a>
+                    <div class="desc">→ NPTEL Online Certification in Introduction to Machine Learning (51/100).</div>
+                </div>
+                    <div class="box">
+                        <div class="icon">💻</div>
+                        <a class="title" href="certificates/tcsion-edge.png" target="_blank">Professional Skills</a>
+                    <div class="desc">→ TCS iON Career Edge - Young Professional course completion.</div>
+                </div>
+        
+                <div class="box">
+                    <div class="icon">📈</div>
+                    <a class="title" href="certificates/Delloite.png" target="_blank">Data & Risk Analysis</a>
+                    <div class="desc">→ Completed job simulations in Data Analytics and Risk Analysis.</div>
+                </div>
+        
+                <div class="box">
+                    <div class="icon">📊</div>
+                    <a class="title" href="certificates/tata.png" target="_blank">Data Visualisation</a>
+                    <div class="desc">→ Empowering Business with effective insights.</div>
+                </div>
+        
+                <div class="box">
+                    <div class="icon">👾</div>
+                    <a class="title" href="certificates/Goldmansachh.png" target="_blank">Risk Job Simulation</a>
+                    <div class="desc">→ Evaluating clients profiles and real estate investments.</div>
+                </div>
+        
+                <div class="box">
+                    <div class="icon">👩‍💻</div>
+                    <a class="title" href="certificates/infosys.png" target="_blank">Java Programming</a>
+                    <div class="desc">→ Certified in Programming in Java recognized by Infosys Springboard.</div>
+                </div>
+        
+            </div>
+        </div>
+        </section>
+        <!-- Project Section -->
+        <section id="projects" class="ai-projects-section">
+            <h2>Innovative Projects</h2>
+            <div class="ai-projects-grid">
+        
+                <div class="ai-project-box">
+                    <img src="projects/vocal_instruments.jpg" alt="Audio to Instrument">
+                    <h3>Vocals to Musical Instruments</h3>
+                    <p>Transforms human vocals into musical instrument sounds using advanced audio processing and AI synthesis.</p>
+                    <ul>
+                        <li>Audio Processing</li>
+                        <li>Machine Learning</li>
+                        <li>Python, Matlab</li>
+                    </ul>
+                </div>
+                <div class="ai-project-box">
+                    <img src="projects/accident_alarm.jpeg" alt="Accident Detection">
+                    <h3>Accident Alarming System</h3>
+                    <p>Real-time road accident detection and instant notification to emergency services using IoT sensors and AI.</p>
+                    <ul>
+                        <li>Arduino, IoT sensors</li>
+                        <li>ML algorithms</li>
+                    </ul>
+                </div>
+                <div class="ai-project-box">
+                    <img src="projects/digital_card.jpg" alt="Digital Visiting Card">
+                    <h3>Digital Visiting Card</h3>
+                    <p>Designed a responsive digital business card for my father's business, leveraging HTML, CSS, and JavaScript to create an interactive and modern online presence.</p>
+                    <ul>
+                        <li>Added clickable icons linking to platforms like YouTube and Instagram.</li>
+                        <li>Incorporated the business's logo and color scheme to maintain brand identity.</li>
+                    </ul>
+                </div> 
+                <div class="ai-project-box">
+                    <img src="projects/fitness_tracker.jpeg" alt="Virtual Fitness Trainer with Fitness Tracker">
+                    <h3>Virtual Fitness Trainer with Fitness Tracker</h3>
+                    <p>Designed and developed a virtual fitness web application that guides users through personalized workouts and monitors exercise performance.</p>
+                    <ul>
+                        <li>The platform combines HTML, CSS, and Python for a seamless user experience and robust backend logic.</li>
+                        <li>Integrated ML algorithms such as Random Forest for user behavior analysis and CNN & RNN for real-time exercise detection and activity tracking.</li>
+                    </ul>
+                </div> 
+            </div>
+        </section>
+        <!-- Skills Section -->
+        <section id="workshops" class="content-section">
+            <h2>Workshops & Trainings</h2>
+            <div class="timeline-card">
+                <div class="timeline">
+                <div class="event">
+                    <div class="event-icon">
+                    <img src="https://journeyofthegeek.com/wp-content/uploads/2019/11/azure-dns.png?w=640" alt="Network icon">
+                    </div>
+                    <h3>ISOC UA Day 2025</h3>
+                    <p>Internet Society India Hyderabad Chapter: DNS, Networking, Network Security.</p>
+                </div>
+                <div class="event">
+                    <div class="event-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712106.png" alt="AI icon">
+                    </div>
+                    <h3 class="event-title-right">AI & Robotics</h3>
+                    <p>CMR Engineering College: AI Tools, Generative AI, Operational Efficiencies through AI & ML.</p>
+                </div>
+                <div class="event">
+                    <div class="event-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3132/3132070.png" alt="Robotics icon">
+                    </div>
+                    <h3>ROBOTHON 2023</h3>
+                    <p>MLR Institute of Technology: Robotics, Industrial Automation, Electronics, Python.</p>
+                </div>
+            </div>
+        </section>
+        <section id="interns" class="Internships">
+        <div class="container">
+            <h2>Internships</h2>
+            <div class="grid">        
+                <div class="box">                    
+                    <h3>VCUBE Software Solutions </h3>
+                    <h3>(15-days)</h3>                    
+                    <div class="desc">Gained hands-on experience in AWS cloud services including EC2 and S3. Learned core concepts of cloud architecture, deployment, and resource management.</div>
+                </div>
+                <div class="box">                        
+                    <h3>Apex Planet (45-days) </h3>
+                    <div class="desc">Completed offline project-based tasks focused on web application development. Built responsive UI components using HTML, CSS, and JavaScript.</div>
+                </div>
+                <div class="box">
+                    <h3>APSCHE–Nasscom Short-Term Internship (8-weeks)</h3>
+                    <div class="desc">Enrolled in a structured 8-week internship program focused on Salesforce CRM. Learning core Salesforce features, tools, and methods through guided tasks and real-world scenarios.</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacts" class="contact-section">
+            <h2>Contact & Details</h2>
+            <div class="contact-row">
+                <div class="contact-column">
+                    <h4>Contact Information</h4>
+                    <p>E-mail: <a href="mailto:suradharani24@gmail.com">suradharani24@gmail.com</a></p>
+                    <p>Phone: +91 93927 48480</>
+                </div>
+                <div class="contact-column">
+                    <h4>Personal Information</h4>
+                    <p>Date of Birth: 08 Oct 2004</p>
+                    <p>Nationality: Indian</>
+                </div>
+                <div class="contact-column">
+                    <h4>Find me on</h4>
+                    <p><a href="https://www.linkedin.com/in/dharani-sura-41762034b/" target="_blank">LinkedIn</a></p>
+                    <p><a href="https://github.com/DharaniSura" target="_blank">GitHub</a></p>
+                    <p><a href="https://github.com/DharaniSura" target="_blank">Resume</a></p>
+
+                </div>
+            </div>
+        </section>
+    </div>
+    <div>
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2025 Sura Dharani. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
