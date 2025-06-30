@@ -18,5 +18,5 @@ It serves as a central hub for my professional background, skills, and ways to r
 
 ## 🚀 Live Demo
 
-You can visit the live portfolio here 👉 [https://your-username.github.io/your-repo-name](https://your-username.github.io/your-repo-name)  
-*(Replace with your actual GitHub Pages link after publishing)*
+You can visit the live portfolio here 👉 [https://github.com/DharaniSura/My_Portfolio] 
+
